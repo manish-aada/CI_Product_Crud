@@ -59,3 +59,37 @@
 		<?php } ?>
 	</tbody>
 </table>
+<?php
+
+function secondLargest($arr) {
+  if (count($arr) < 2) {
+    return null; 
+  }
+
+  $largest = $arr[0];
+  for ($i = 1; $i < count($arr); $i++) {
+    if ($arr[$i] > $largest) {
+      $largest = $arr[$i];
+    }
+  }
+
+  $secondLargest = $arr[0];
+  for ($i = 1; $i < count($arr); $i++) {
+    if ($arr[$i] > $secondLargest && $arr[$i] != $largest) {
+      $secondLargest = $arr[$i];
+    }
+  }
+
+  return $secondLargest;
+}
+
+$numbers = [10, 5, 8, 20, 12, 20, 15,25];
+$secondLargest = secondLargest($numbers);
+
+if ($secondLargest !== null) {
+  echo "The second largest number is: " . $secondLargest;
+} else {
+  echo "No second largest number found.";
+}
+
+?>
